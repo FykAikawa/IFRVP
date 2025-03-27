@@ -1,11 +1,53 @@
-# IFRVP
-# 軽量な実時間処理に適した映像予測モデルの設計と訓練
-very lightweight video prediction model with prediction training,
-paper is available at https://ieeexplore.ieee.org/document/10647865/
+# IFRVP: Real-Time Video Prediction with Fast Video Interpolation Model
 
-![](https://raw.githubusercontent.com/FykAikawa/IFRVP/refs/heads/main/flopscomparison_hrs_v2.svg)
+## Overview
 
-IFRNetを軽量化し、さらに、内挿モデルを映像予測向けに訓練することで、State-of-the-artのパフォーマンスを達成しました。
+This repository contains the implementation of "REAL-TIME VIDEO PREDICTION WITH FAST VIDEO INTERPOLATION MODEL AND PREDICTION TRAINING," a novel approach to enable zero-latency interaction in networked video applications.
 
+## Paper Abstract
 
+Transmission latency significantly affects users' quality of experience in real-time interaction and actuation. While latency is fundamentally inevitable due to physical constraints, this work proposes IFRVP (Intermediate Feature Refinement Video Prediction) to mitigate latency through efficient video prediction. IFRVP extends a simple convolution-only frame interpolation network based on IFRNet by unifying optical flow estimation and pixel refinements into a single network. The architecture introduces ELAN-based residual blocks which significantly reduce computational complexity while maintaining high prediction accuracy. Unlike previous state models that require recursive application for multi-frame prediction, IFRVP's arbitrary and independent prediction methods can generate predictions for any future timestep in a single inference, effectively avoiding error accumulation while enabling real-time performance even on consumer hardware.
 
+## Key Contributions
+
+1. **Three Training Methods for Video Prediction**:
+   - **Recurrent Prediction**: Uses the two latest frames to recursively predict the next frame
+   - **Arbitrary Prediction**: Predicts any future timestep in a single inference using timestep embedding
+   - **Independent Prediction**: Utilizes specialized models for different prediction timesteps
+
+2. **ELAN-based Residual Blocks**: Lightweight architecture that improves both inference speed and prediction accuracy
+
+3. **State-of-the-Art Performance**: Achieves the best trade-off between prediction accuracy and computational speed compared to existing methods
+
+## Results
+
+- IFRVP-Fast achieves comparable or better prediction quality than state-of-the-art methods while requiring only 9.9 GFLOPs (20% less computation than DMVFN)
+- Models can run at 70-130 FPS on consumer GPUs depending on resolution
+- Independent prediction training achieves the highest accuracy by avoiding error accumulation
+
+## Demo
+
+A demonstration video showing real-time prediction capabilities is available at http://bit.ly/IFRVPDemo
+
+## Applications
+
+- Remote control/telepresence systems
+- Autonomous driving
+- Cloud gaming
+- Video conferencing
+- Mission-critical systems requiring near-zero latency
+
+## Paper Link
+
+The full paper is available at: [IEEE Xplore](https://ieeexplore.ieee.org/document/10647865)
+
+## Citation
+
+```
+@inproceedings{hirose2024realtime,
+  title={Real-Time Video Prediction with Fast Video Interpolation Model and Prediction Training},
+  author={Hirose, Shota and Kotoyori, Kazuki and Arunruangsirilert, Kasidis and Lin, Fangzheng and Sun, Heming and Katto, Jiro},
+  booktitle={IEEE International Conference on Image Processing (ICIP)},
+  year={2024}
+}
+```
