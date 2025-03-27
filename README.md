@@ -12,12 +12,18 @@ The full paper is available at: [IEEE Xplore](https://ieeexplore.ieee.org/docume
 
 Transmission latency significantly affects users' quality of experience in real-time interaction and actuation. While latency is fundamentally inevitable due to physical constraints, this work proposes IFRVP (Intermediate Feature Refinement Video Prediction) to mitigate latency through efficient video prediction. IFRVP extends a simple convolution-only frame interpolation network based on IFRNet by unifying optical flow estimation and pixel refinements into a single network. The architecture introduces ELAN-based residual blocks which significantly reduce computational complexity while maintaining high prediction accuracy. Unlike previous state models that require recursive application for multi-frame prediction, IFRVP's arbitrary and independent prediction methods can generate predictions for any future timestep in a single inference, effectively avoiding error accumulation while enabling real-time performance even on consumer hardware.
 
+## Performance Comparison
+
+![Performance Comparison](flopscomparison_hrs_v2.svg)
+
 ## Key Contributions
 
 1. **Three Training Methods for Video Prediction**:
    - **Recurrent Prediction**: Uses the two latest frames to recursively predict the next frame
    - **Arbitrary Prediction**: Predicts any future timestep in a single inference using timestep embedding
    - **Independent Prediction**: Utilizes specialized models for different prediction timesteps
+
+![Prediction Methods](predictionmethods.png)
 
 2. **ELAN-based Residual Blocks**: Lightweight architecture that improves both inference speed and prediction accuracy
 
