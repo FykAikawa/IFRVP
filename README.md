@@ -14,7 +14,7 @@ Transmission latency significantly affects users' quality of experience in real-
 
 ## Performance Comparison
 
-![Performance Comparison](flopscomparison_hrs_v2.svg)
+![Performance Comparison](flopscomparison_hrs_v2.png)
 
 ## Key Contributions
 
