@@ -1,5 +1,5 @@
 # IFRVP: Real-Time Video Prediction with Fast Video Interpolation Model
-
+[![arXiv](https://img.shields.io/badge/arXiv-2503.23185-b31b1b.svg)](https://arxiv.org/abs/2503.23185)
 ## Overview
 
 This repository contains the implementation of "REAL-TIME VIDEO PREDICTION WITH FAST VIDEO INTERPOLATION MODEL AND PREDICTION TRAINING," a novel approach to enable zero-latency interaction in networked video applications.
